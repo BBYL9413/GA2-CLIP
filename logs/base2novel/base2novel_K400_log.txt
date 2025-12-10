@@ -1,0 +1,269 @@
+[07/26 17:50:36] VideoClip INFO: ------------------------------------
+[07/26 17:50:36] VideoClip INFO: Environment Versions:
+[07/26 17:50:36] VideoClip INFO: - Python: 3.8.12 (default, Oct 12 2021, 13:49:34) 
+[GCC 7.5.0]
+[07/26 17:50:36] VideoClip INFO: - PyTorch: 2.0.1+cu117
+[07/26 17:50:36] VideoClip INFO: - TorchVison: 0.15.2+cu117
+[07/26 17:50:36] VideoClip INFO: ------------------------------------
+[07/26 17:50:36] VideoClip INFO: {   'data': {   'batch_size': 8,
+                'dataset': 'k400',
+                'image_tmpl': 'img_{:05d}.jpg',
+                'input_size': 224,
+                'label_list': 'lists/labels/kinetics_400_base_labels.csv',
+                'modality': 'video',
+                'num_classes': 200,
+                'num_segments': 32,
+                'randaug': {'M': 9, 'N': 2},
+                'random_shift': True,
+                'seg_length': 1,
+                'train_list': '/home/wangb/Dataset/kinetics400/annotations/k400_splits/fs_base_s1_train_new.txt',
+                'train_root': 'kinetics400/videos_train/',
+                'val_list': '/home/wangb/Dataset/kinetics400/annotations/k400_splits/base_val_new.txt',
+                'val_root': 'kinetics400/videos_val/',
+                'workers': 4},
+    'logging': {   'eval_freq': 1,
+                   'print_freq': 10,
+                   'skip_epoch': [1, 2, 3, 4, 5, 6]},
+    'network': {   'arch': 'ViT-B/16',
+                   'arch_teacher': 'ViT-B/16',
+                   'drop': 0,
+                   'drop_out': 0.0,
+                   'emb_dropout': 0.0,
+                   'freeze': 'P',
+                   'init': True,
+                   'interaction': 'DPS',
+                   'joint_st': False,
+                   'sim_header': 'None',
+                   'tm': False,
+                   'type': 'clip_k400'},
+    'pretrain': None,
+    'resume': None,
+    'seed': 1024,
+    'solver': {   'clip_ratio': 1.0,
+                  'epoch_offset': 0,
+                  'epochs': 12,
+                  'evaluate': False,
+                  'grad_accumulation_steps': 1,
+                  'loss_type': 'CE',
+                  'lr': 0.04,
+                  'lr_warmup_step': 2,
+                  'optim': 'adamw',
+                  'start_epoch': 0,
+                  'type': 'cosine',
+                  'weight_decay': 0.001}}
+[07/26 17:50:36] VideoClip INFO: ------------------------------------
+[07/26 17:50:36] VideoClip INFO: storing name: ./exp_nce/k400/ViT-B/16/20250726_175019
+[07/26 17:50:46] VideoClip INFO: train transforms: [Compose(
+    <datasets.transforms.GroupScale object at 0x7fe41c0f87f0>
+    Compose(
+    <datasets.transforms.GroupRandomSizedCrop object at 0x7fe41c0f87c0>
+    <datasets.transforms.GroupRandomHorizontalFlip object at 0x7fe41c0f85b0>
+)
+    <datasets.transforms.GroupRandomGrayscale object at 0x7fe41c0f8250>
+), Compose(
+    <datasets.transforms.Stack object at 0x7fe41c0f8280>
+    <datasets.transforms.ToTorchFormatTensor object at 0x7fe41c0f82b0>
+    <datasets.transforms.GroupNormalize object at 0x7fe4b57a09a0>
+)]
+[07/26 17:50:46] VideoClip INFO: val transforms: [Compose(
+    <datasets.transforms.GroupScale object at 0x7fe417fcbf10>
+    <datasets.transforms.GroupCenterCrop object at 0x7fe417fcbd60>
+), Compose(
+    <datasets.transforms.Stack object at 0x7fe41c7fbaf0>
+    <datasets.transforms.ToTorchFormatTensor object at 0x7fe41c7fb9a0>
+    <datasets.transforms.GroupNormalize object at 0x7fe417fcbf70>
+)]
+[07/26 17:50:47] VideoClip INFO: Turning off gradients in both the image and the text encoder
+[07/26 17:51:05] VideoClip INFO: Epoch: [0][0/49], lr: 0.00e+00, eta: 2:46:26	Time 16.955 (16.955)	Data 11.284 (11.284)	Loss 2.2224 (2.2224)
+[07/26 17:51:25] VideoClip INFO: Epoch: [0][10/49], lr: 3.67e-03, eta: 0:32:22	Time 1.690 (3.354)	Data 0.406 (1.497)	Loss 1.5490 (2.4110)
+[07/26 17:51:46] VideoClip INFO: Epoch: [0][20/49], lr: 7.76e-03, eta: 0:25:59	Time 2.248 (2.741)	Data 0.575 (1.010)	Loss 3.2599 (2.2168)
+[07/26 17:52:06] VideoClip INFO: Epoch: [0][30/49], lr: 1.18e-02, eta: 0:23:33	Time 1.704 (2.528)	Data 0.448 (0.814)	Loss 2.7246 (2.0995)
+[07/26 17:52:24] VideoClip INFO: Epoch: [0][40/49], lr: 1.59e-02, eta: 0:21:29	Time 1.731 (2.349)	Data 0.397 (0.746)	Loss 1.8197 (1.9752)
+[07/26 17:52:51] VideoClip INFO: Test: [0/155]	Prec@1 71.875 (71.875)	Prec@5 93.750 (93.750)
+[07/26 17:53:08] VideoClip INFO: Test: [10/155]	Prec@1 75.000 (71.165)	Prec@5 95.312 (92.898)
+[07/26 17:53:26] VideoClip INFO: Test: [20/155]	Prec@1 73.438 (70.610)	Prec@5 95.312 (92.560)
+[07/26 17:53:45] VideoClip INFO: Test: [30/155]	Prec@1 67.188 (69.657)	Prec@5 93.750 (92.238)
+[07/26 17:54:04] VideoClip INFO: Test: [40/155]	Prec@1 62.500 (70.160)	Prec@5 95.312 (92.226)
+[07/26 17:54:21] VideoClip INFO: Test: [50/155]	Prec@1 76.562 (70.312)	Prec@5 93.750 (92.371)
+[07/26 17:54:40] VideoClip INFO: Test: [60/155]	Prec@1 70.312 (70.850)	Prec@5 85.938 (92.469)
+[07/26 17:54:58] VideoClip INFO: Test: [70/155]	Prec@1 70.312 (71.193)	Prec@5 92.188 (92.628)
+[07/26 17:55:16] VideoClip INFO: Test: [80/155]	Prec@1 70.312 (71.663)	Prec@5 93.750 (92.882)
+[07/26 17:55:34] VideoClip INFO: Test: [90/155]	Prec@1 73.438 (71.772)	Prec@5 89.062 (92.806)
+[07/26 17:55:52] VideoClip INFO: Test: [100/155]	Prec@1 70.312 (71.736)	Prec@5 93.750 (92.760)
+[07/26 17:56:09] VideoClip INFO: Test: [110/155]	Prec@1 71.875 (71.537)	Prec@5 89.062 (92.441)
+[07/26 17:56:27] VideoClip INFO: Test: [120/155]	Prec@1 76.562 (71.449)	Prec@5 93.750 (92.446)
+[07/26 17:56:45] VideoClip INFO: Test: [130/155]	Prec@1 73.438 (71.493)	Prec@5 90.625 (92.378)
+[07/26 17:57:03] VideoClip INFO: Test: [140/155]	Prec@1 79.688 (71.664)	Prec@5 95.312 (92.453)
+[07/26 17:57:20] VideoClip INFO: Test: [150/155]	Prec@1 62.500 (71.471)	Prec@5 90.625 (92.488)
+[07/26 17:57:27] VideoClip INFO: Testing Results: Prec@1 71.456 Prec@5 92.559
+[07/26 17:57:27] VideoClip INFO: Testing: 71.45597736438758/71.45597736438758
+[07/26 17:57:27] VideoClip INFO: Saving:
+[07/26 17:57:43] VideoClip INFO: Epoch: [1][0/49], lr: 2.00e-02, eta: 1:33:57	Time 10.440 (10.440)	Data 8.864 (8.864)	Loss 2.2562 (2.2562)
+[07/26 17:58:02] VideoClip INFO: Epoch: [1][10/49], lr: 2.37e-02, eta: 0:23:40	Time 1.753 (2.681)	Data 0.556 (1.240)	Loss 1.6830 (1.5502)
+[07/26 17:58:22] VideoClip INFO: Epoch: [1][20/49], lr: 2.78e-02, eta: 0:20:34	Time 2.266 (2.373)	Data 0.459 (0.904)	Loss 0.5185 (1.4600)
+[07/26 17:58:44] VideoClip INFO: Epoch: [1][30/49], lr: 3.18e-02, eta: 0:19:40	Time 2.247 (2.316)	Data 0.453 (0.792)	Loss 2.5677 (1.5893)
+[07/26 17:59:05] VideoClip INFO: Epoch: [1][40/49], lr: 3.59e-02, eta: 0:18:51	Time 1.655 (2.262)	Data 0.525 (0.722)	Loss 1.9453 (1.6889)
+[07/26 17:59:31] VideoClip INFO: Epoch: [2][0/49], lr: 4.00e-02, eta: 1:40:17	Time 12.256 (12.256)	Data 10.798 (10.798)	Loss 1.1743 (1.1743)
+[07/26 17:59:50] VideoClip INFO: Epoch: [2][10/49], lr: 4.00e-02, eta: 0:23:13	Time 2.014 (2.897)	Data 0.618 (1.593)	Loss 0.5461 (1.5453)
+[07/26 18:00:09] VideoClip INFO: Epoch: [2][20/49], lr: 3.99e-02, eta: 0:18:59	Time 2.296 (2.418)	Data 1.094 (1.084)	Loss 0.5728 (1.4014)
+[07/26 18:00:31] VideoClip INFO: Epoch: [2][30/49], lr: 3.97e-02, eta: 0:17:53	Time 2.016 (2.328)	Data 0.387 (0.883)	Loss 1.4596 (1.3959)
+[07/26 18:00:52] VideoClip INFO: Epoch: [2][40/49], lr: 3.94e-02, eta: 0:17:07	Time 2.239 (2.279)	Data 0.500 (0.791)	Loss 0.5306 (1.4239)
+[07/26 18:01:18] VideoClip INFO: Epoch: [3][0/49], lr: 3.90e-02, eta: 1:22:53	Time 11.252 (11.252)	Data 10.144 (10.144)	Loss 1.3293 (1.3293)
+[07/26 18:01:39] VideoClip INFO: Epoch: [3][10/49], lr: 3.86e-02, eta: 0:20:43	Time 2.011 (2.879)	Data 0.404 (1.409)	Loss 0.4624 (1.4162)
+[07/26 18:01:57] VideoClip INFO: Epoch: [3][20/49], lr: 3.81e-02, eta: 0:16:44	Time 2.014 (2.380)	Data 0.699 (1.052)	Loss 1.1613 (1.3286)
+[07/26 18:02:18] VideoClip INFO: Epoch: [3][30/49], lr: 3.76e-02, eta: 0:15:41	Time 2.040 (2.286)	Data 0.454 (0.863)	Loss 1.0138 (1.2490)
+[07/26 18:02:37] VideoClip INFO: Epoch: [3][40/49], lr: 3.69e-02, eta: 0:14:42	Time 2.152 (2.196)	Data 0.455 (0.770)	Loss 2.4843 (1.2368)
+[07/26 18:03:06] VideoClip INFO: Epoch: [4][0/49], lr: 3.62e-02, eta: 1:18:08	Time 11.931 (11.931)	Data 10.567 (10.567)	Loss 1.5895 (1.5895)
+[07/26 18:03:27] VideoClip INFO: Epoch: [4][10/49], lr: 3.55e-02, eta: 0:19:11	Time 1.893 (3.006)	Data 0.499 (1.424)	Loss 2.4202 (1.5268)
+[07/26 18:03:49] VideoClip INFO: Epoch: [4][20/49], lr: 3.46e-02, eta: 0:16:11	Time 1.968 (2.604)	Data 0.687 (1.062)	Loss 1.2066 (1.3078)
+[07/26 18:04:08] VideoClip INFO: Epoch: [4][30/49], lr: 3.37e-02, eta: 0:14:28	Time 1.703 (2.393)	Data 0.529 (0.870)	Loss 0.9137 (1.2109)
+[07/26 18:04:26] VideoClip INFO: Epoch: [4][40/49], lr: 3.28e-02, eta: 0:13:08	Time 1.612 (2.233)	Data 0.396 (0.764)	Loss 1.1484 (1.1729)
+[07/26 18:04:54] VideoClip INFO: Epoch: [5][0/49], lr: 3.18e-02, eta: 1:14:35	Time 13.011 (13.011)	Data 11.196 (11.196)	Loss 1.0749 (1.0749)
+[07/26 18:05:16] VideoClip INFO: Epoch: [5][10/49], lr: 3.08e-02, eta: 0:17:40	Time 2.205 (3.176)	Data 0.523 (1.483)	Loss 1.6482 (1.2152)
+[07/26 18:05:37] VideoClip INFO: Epoch: [5][20/49], lr: 2.97e-02, eta: 0:14:23	Time 1.659 (2.664)	Data 0.596 (0.997)	Loss 0.8300 (1.2442)
+[07/26 18:05:56] VideoClip INFO: Epoch: [5][30/49], lr: 2.86e-02, eta: 0:12:37	Time 1.918 (2.412)	Data 0.423 (0.838)	Loss 0.6196 (1.1869)
+[07/26 18:06:14] VideoClip INFO: Epoch: [5][40/49], lr: 2.74e-02, eta: 0:11:28	Time 1.895 (2.265)	Data 0.430 (0.743)	Loss 1.7353 (1.1332)
+[07/26 18:06:43] VideoClip INFO: Epoch: [6][0/49], lr: 2.62e-02, eta: 0:56:44	Time 11.542 (11.542)	Data 9.759 (9.759)	Loss 1.0681 (1.0681)
+[07/26 18:07:05] VideoClip INFO: Epoch: [6][10/49], lr: 2.51e-02, eta: 0:14:14	Time 1.563 (2.999)	Data 0.556 (1.388)	Loss 2.3338 (1.1402)
+[07/26 18:07:24] VideoClip INFO: Epoch: [6][20/49], lr: 2.38e-02, eta: 0:11:21	Time 1.707 (2.479)	Data 0.297 (0.947)	Loss 0.1740 (1.1142)
+[07/26 18:07:43] VideoClip INFO: Epoch: [6][30/49], lr: 2.26e-02, eta: 0:10:08	Time 1.926 (2.297)	Data 0.511 (0.824)	Loss 2.3981 (1.1499)
+[07/26 18:08:04] VideoClip INFO: Epoch: [6][40/49], lr: 2.13e-02, eta: 0:09:35	Time 2.403 (2.258)	Data 0.757 (0.769)	Loss 0.9062 (1.1640)
+[07/26 18:08:32] VideoClip INFO: Epoch: [7][0/49], lr: 2.00e-02, eta: 0:49:40	Time 12.115 (12.115)	Data 10.446 (10.446)	Loss 0.7749 (0.7749)
+[07/26 18:08:53] VideoClip INFO: Epoch: [7][10/49], lr: 1.88e-02, eta: 0:11:48	Time 2.214 (3.000)	Data 0.687 (1.385)	Loss 0.4997 (0.9314)
+[07/26 18:09:12] VideoClip INFO: Epoch: [7][20/49], lr: 1.76e-02, eta: 0:09:28	Time 1.995 (2.516)	Data 0.522 (0.963)	Loss 1.2661 (0.9021)
+[07/26 18:09:34] VideoClip INFO: Epoch: [7][30/49], lr: 1.63e-02, eta: 0:08:40	Time 2.420 (2.410)	Data 0.463 (0.817)	Loss 1.8814 (0.8962)
+[07/26 18:09:58] VideoClip INFO: Epoch: [7][40/49], lr: 1.51e-02, eta: 0:08:12	Time 2.226 (2.392)	Data 0.646 (0.749)	Loss 0.3081 (0.9580)
+[07/26 18:10:23] VideoClip INFO: Test: [0/155]	Prec@1 78.125 (78.125)	Prec@5 100.000 (100.000)
+[07/26 18:10:41] VideoClip INFO: Test: [10/155]	Prec@1 81.250 (77.415)	Prec@5 93.750 (95.312)
+[07/26 18:11:00] VideoClip INFO: Test: [20/155]	Prec@1 76.562 (77.083)	Prec@5 96.875 (95.089)
+[07/26 18:11:17] VideoClip INFO: Test: [30/155]	Prec@1 76.562 (75.756)	Prec@5 96.875 (94.859)
+[07/26 18:11:34] VideoClip INFO: Test: [40/155]	Prec@1 67.188 (76.372)	Prec@5 96.875 (95.008)
+[07/26 18:11:52] VideoClip INFO: Test: [50/155]	Prec@1 76.562 (76.225)	Prec@5 93.750 (95.006)
+[07/26 18:12:10] VideoClip INFO: Test: [60/155]	Prec@1 76.562 (76.537)	Prec@5 93.750 (94.980)
+[07/26 18:12:29] VideoClip INFO: Test: [70/155]	Prec@1 64.062 (76.761)	Prec@5 95.312 (95.048)
+[07/26 18:12:47] VideoClip INFO: Test: [80/155]	Prec@1 73.438 (77.103)	Prec@5 92.188 (95.158)
+[07/26 18:13:05] VideoClip INFO: Test: [90/155]	Prec@1 87.500 (77.387)	Prec@5 96.875 (95.227)
+[07/26 18:13:23] VideoClip INFO: Test: [100/155]	Prec@1 84.375 (77.413)	Prec@5 95.312 (95.204)
+[07/26 18:13:41] VideoClip INFO: Test: [110/155]	Prec@1 79.688 (77.294)	Prec@5 93.750 (95.017)
+[07/26 18:13:58] VideoClip INFO: Test: [120/155]	Prec@1 76.562 (77.105)	Prec@5 95.312 (94.990)
+[07/26 18:14:13] VideoClip INFO: Test: [130/155]	Prec@1 76.562 (77.063)	Prec@5 95.312 (94.979)
+[07/26 18:14:32] VideoClip INFO: Test: [140/155]	Prec@1 82.812 (77.094)	Prec@5 96.875 (95.024)
+[07/26 18:14:48] VideoClip INFO: Test: [150/155]	Prec@1 68.750 (77.049)	Prec@5 95.312 (95.085)
+[07/26 18:14:54] VideoClip INFO: Testing Results: Prec@1 77.050 Prec@5 95.103
+[07/26 18:14:54] VideoClip INFO: Testing: 77.04967689822294/77.04967689822294
+[07/26 18:14:54] VideoClip INFO: Saving:
+[07/26 18:15:11] VideoClip INFO: Epoch: [8][0/49], lr: 1.38e-02, eta: 0:30:46	Time 9.373 (9.373)	Data 8.412 (8.412)	Loss 1.6660 (1.6660)
+[07/26 18:15:32] VideoClip INFO: Epoch: [8][10/49], lr: 1.27e-02, eta: 0:08:38	Time 1.689 (2.774)	Data 0.392 (1.211)	Loss 1.6233 (1.4435)
+[07/26 18:15:52] VideoClip INFO: Epoch: [8][20/49], lr: 1.16e-02, eta: 0:07:09	Time 1.791 (2.424)	Data 0.491 (0.900)	Loss 0.6274 (1.1937)
+[07/26 18:16:12] VideoClip INFO: Epoch: [8][30/49], lr: 1.04e-02, eta: 0:06:21	Time 1.799 (2.285)	Data 0.370 (0.763)	Loss 0.6272 (1.1091)
+[07/26 18:16:31] VideoClip INFO: Epoch: [8][40/49], lr: 9.31e-03, eta: 0:05:45	Time 1.924 (2.199)	Data 0.714 (0.705)	Loss 1.6572 (1.0791)
+[07/26 18:16:53] VideoClip INFO: Test: [0/155]	Prec@1 79.688 (79.688)	Prec@5 98.438 (98.438)
+[07/26 18:17:11] VideoClip INFO: Test: [10/155]	Prec@1 82.812 (78.977)	Prec@5 93.750 (95.881)
+[07/26 18:17:28] VideoClip INFO: Test: [20/155]	Prec@1 76.562 (76.935)	Prec@5 96.875 (95.312)
+[07/26 18:17:45] VideoClip INFO: Test: [30/155]	Prec@1 81.250 (76.008)	Prec@5 98.438 (95.212)
+[07/26 18:18:03] VideoClip INFO: Test: [40/155]	Prec@1 60.938 (76.220)	Prec@5 96.875 (95.236)
+[07/26 18:18:20] VideoClip INFO: Test: [50/155]	Prec@1 81.250 (76.379)	Prec@5 95.312 (95.129)
+[07/26 18:18:38] VideoClip INFO: Test: [60/155]	Prec@1 73.438 (76.562)	Prec@5 92.188 (95.133)
+[07/26 18:18:55] VideoClip INFO: Test: [70/155]	Prec@1 68.750 (76.871)	Prec@5 93.750 (95.136)
+[07/26 18:19:14] VideoClip INFO: Test: [80/155]	Prec@1 75.000 (77.160)	Prec@5 92.188 (95.235)
+[07/26 18:19:31] VideoClip INFO: Test: [90/155]	Prec@1 89.062 (77.266)	Prec@5 96.875 (95.347)
+[07/26 18:19:48] VideoClip INFO: Test: [100/155]	Prec@1 85.938 (77.398)	Prec@5 95.312 (95.312)
+[07/26 18:20:06] VideoClip INFO: Test: [110/155]	Prec@1 79.688 (77.182)	Prec@5 95.312 (95.228)
+[07/26 18:20:23] VideoClip INFO: Test: [120/155]	Prec@1 76.562 (76.950)	Prec@5 93.750 (95.145)
+[07/26 18:20:38] VideoClip INFO: Test: [130/155]	Prec@1 76.562 (76.944)	Prec@5 95.312 (95.122)
+[07/26 18:20:55] VideoClip INFO: Test: [140/155]	Prec@1 82.812 (76.906)	Prec@5 96.875 (95.191)
+[07/26 18:21:12] VideoClip INFO: Test: [150/155]	Prec@1 76.562 (76.997)	Prec@5 95.312 (95.209)
+[07/26 18:21:19] VideoClip INFO: Testing Results: Prec@1 76.949 Prec@5 95.184
+[07/26 18:21:19] VideoClip INFO: Testing: 76.94870756824105/77.04967689822294
+[07/26 18:21:19] VideoClip INFO: Saving:
+[07/26 18:21:33] VideoClip INFO: Epoch: [9][0/49], lr: 8.24e-03, eta: 0:24:58	Time 10.124 (10.124)	Data 8.898 (8.898)	Loss 0.5206 (0.5206)
+[07/26 18:21:53] VideoClip INFO: Epoch: [9][10/49], lr: 7.33e-03, eta: 0:06:12	Time 1.949 (2.698)	Data 0.500 (1.239)	Loss 0.5938 (0.7668)
+[07/26 18:22:13] VideoClip INFO: Epoch: [9][20/49], lr: 6.37e-03, eta: 0:05:06	Time 1.650 (2.391)	Data 0.482 (0.892)	Loss 0.6516 (0.8259)
+[07/26 18:22:33] VideoClip INFO: Epoch: [9][30/49], lr: 5.46e-03, eta: 0:04:26	Time 2.429 (2.256)	Data 0.916 (0.781)	Loss 0.3909 (0.9099)
+[07/26 18:22:53] VideoClip INFO: Epoch: [9][40/49], lr: 4.61e-03, eta: 0:03:56	Time 1.585 (2.194)	Data 0.460 (0.706)	Loss 1.8521 (0.9602)
+[07/26 18:23:16] VideoClip INFO: Test: [0/155]	Prec@1 78.125 (78.125)	Prec@5 98.438 (98.438)
+[07/26 18:23:35] VideoClip INFO: Test: [10/155]	Prec@1 81.250 (77.983)	Prec@5 92.188 (95.028)
+[07/26 18:23:51] VideoClip INFO: Test: [20/155]	Prec@1 78.125 (76.637)	Prec@5 98.438 (94.792)
+[07/26 18:24:10] VideoClip INFO: Test: [30/155]	Prec@1 76.562 (75.756)	Prec@5 96.875 (94.556)
+[07/26 18:24:26] VideoClip INFO: Test: [40/155]	Prec@1 65.625 (76.562)	Prec@5 96.875 (94.665)
+[07/26 18:24:42] VideoClip INFO: Test: [50/155]	Prec@1 81.250 (76.471)	Prec@5 93.750 (94.638)
+[07/26 18:25:00] VideoClip INFO: Test: [60/155]	Prec@1 75.000 (76.665)	Prec@5 92.188 (94.698)
+[07/26 18:25:17] VideoClip INFO: Test: [70/155]	Prec@1 68.750 (76.981)	Prec@5 96.875 (94.828)
+[07/26 18:25:35] VideoClip INFO: Test: [80/155]	Prec@1 73.438 (77.160)	Prec@5 92.188 (94.985)
+[07/26 18:25:51] VideoClip INFO: Test: [90/155]	Prec@1 87.500 (77.318)	Prec@5 96.875 (95.106)
+[07/26 18:26:09] VideoClip INFO: Test: [100/155]	Prec@1 82.812 (77.444)	Prec@5 96.875 (95.142)
+[07/26 18:26:27] VideoClip INFO: Test: [110/155]	Prec@1 82.812 (77.210)	Prec@5 95.312 (95.017)
+[07/26 18:26:45] VideoClip INFO: Test: [120/155]	Prec@1 75.000 (76.872)	Prec@5 93.750 (94.964)
+[07/26 18:27:02] VideoClip INFO: Test: [130/155]	Prec@1 75.000 (76.861)	Prec@5 95.312 (94.979)
+[07/26 18:27:18] VideoClip INFO: Test: [140/155]	Prec@1 82.812 (76.862)	Prec@5 96.875 (94.980)
+[07/26 18:27:37] VideoClip INFO: Test: [150/155]	Prec@1 73.438 (76.852)	Prec@5 96.875 (95.095)
+[07/26 18:27:42] VideoClip INFO: Testing Results: Prec@1 76.848 Prec@5 95.083
+[07/26 18:27:43] VideoClip INFO: Testing: 76.84773826290987/77.04967689822294
+[07/26 18:27:43] VideoClip INFO: Saving:
+[07/26 18:27:57] VideoClip INFO: Epoch: [10][0/49], lr: 3.82e-03, eta: 0:17:38	Time 10.687 (10.687)	Data 9.414 (9.414)	Loss 0.4245 (0.4245)
+[07/26 18:28:17] VideoClip INFO: Epoch: [10][10/49], lr: 3.17e-03, eta: 0:04:12	Time 2.219 (2.842)	Data 0.463 (1.392)	Loss 1.2103 (0.9472)
+[07/26 18:28:37] VideoClip INFO: Epoch: [10][20/49], lr: 2.51e-03, eta: 0:03:12	Time 2.281 (2.441)	Data 0.703 (0.977)	Loss 1.2504 (0.9368)
+[07/26 18:28:58] VideoClip INFO: Epoch: [10][30/49], lr: 1.93e-03, eta: 0:02:40	Time 2.419 (2.328)	Data 0.543 (0.837)	Loss 0.9280 (0.9128)
+[07/26 18:29:16] VideoClip INFO: Epoch: [10][40/49], lr: 1.41e-03, eta: 0:02:09	Time 2.211 (2.192)	Data 0.401 (0.736)	Loss 0.2684 (0.8766)
+[07/26 18:29:40] VideoClip INFO: Test: [0/155]	Prec@1 78.125 (78.125)	Prec@5 98.438 (98.438)
+[07/26 18:29:58] VideoClip INFO: Test: [10/155]	Prec@1 81.250 (78.267)	Prec@5 92.188 (95.028)
+[07/26 18:30:15] VideoClip INFO: Test: [20/155]	Prec@1 76.562 (77.009)	Prec@5 98.438 (94.940)
+[07/26 18:30:33] VideoClip INFO: Test: [30/155]	Prec@1 75.000 (76.109)	Prec@5 96.875 (94.758)
+[07/26 18:30:51] VideoClip INFO: Test: [40/155]	Prec@1 65.625 (76.296)	Prec@5 98.438 (94.855)
+[07/26 18:31:10] VideoClip INFO: Test: [50/155]	Prec@1 81.250 (76.593)	Prec@5 95.312 (94.730)
+[07/26 18:31:26] VideoClip INFO: Test: [60/155]	Prec@1 76.562 (76.767)	Prec@5 92.188 (94.826)
+[07/26 18:31:44] VideoClip INFO: Test: [70/155]	Prec@1 68.750 (77.003)	Prec@5 96.875 (94.938)
+[07/26 18:32:03] VideoClip INFO: Test: [80/155]	Prec@1 70.312 (77.218)	Prec@5 92.188 (95.081)
+[07/26 18:32:20] VideoClip INFO: Test: [90/155]	Prec@1 87.500 (77.404)	Prec@5 96.875 (95.141)
+[07/26 18:32:39] VideoClip INFO: Test: [100/155]	Prec@1 82.812 (77.522)	Prec@5 96.875 (95.127)
+[07/26 18:32:56] VideoClip INFO: Test: [110/155]	Prec@1 81.250 (77.168)	Prec@5 95.312 (95.017)
+[07/26 18:33:12] VideoClip INFO: Test: [120/155]	Prec@1 73.438 (76.898)	Prec@5 95.312 (94.977)
+[07/26 18:33:29] VideoClip INFO: Test: [130/155]	Prec@1 76.562 (76.885)	Prec@5 93.750 (94.943)
+[07/26 18:33:46] VideoClip INFO: Test: [140/155]	Prec@1 81.250 (76.906)	Prec@5 96.875 (94.969)
+[07/26 18:34:02] VideoClip INFO: Test: [150/155]	Prec@1 73.438 (76.894)	Prec@5 96.875 (95.054)
+[07/26 18:34:09] VideoClip INFO: Testing Results: Prec@1 76.918 Prec@5 95.042
+[07/26 18:34:09] VideoClip INFO: Testing: 76.91841678896705/77.04967689822294
+[07/26 18:34:09] VideoClip INFO: Saving:
+[07/26 18:34:23] VideoClip INFO: Epoch: [11][0/49], lr: 9.79e-04, eta: 0:08:44	Time 10.483 (10.483)	Data 8.851 (8.851)	Loss 1.2320 (1.2320)
+[07/26 18:34:42] VideoClip INFO: Epoch: [11][10/49], lr: 6.54e-04, eta: 0:01:46	Time 1.968 (2.660)	Data 0.717 (1.298)	Loss 0.7960 (0.9902)
+[07/26 18:35:03] VideoClip INFO: Epoch: [11][20/49], lr: 3.69e-04, eta: 0:01:12	Time 2.182 (2.414)	Data 0.634 (0.937)	Loss 0.8388 (0.9498)
+[07/26 18:35:23] VideoClip INFO: Epoch: [11][30/49], lr: 1.64e-04, eta: 0:00:45	Time 1.890 (2.269)	Data 0.424 (0.784)	Loss 0.5764 (0.9653)
+[07/26 18:35:43] VideoClip INFO: Epoch: [11][40/49], lr: 4.11e-05, eta: 0:00:21	Time 1.903 (2.191)	Data 0.448 (0.713)	Loss 1.8102 (1.0033)
+[07/26 18:36:07] VideoClip INFO: Test: [0/155]	Prec@1 78.125 (78.125)	Prec@5 98.438 (98.438)
+[07/26 18:36:25] VideoClip INFO: Test: [10/155]	Prec@1 81.250 (78.409)	Prec@5 92.188 (95.028)
+[07/26 18:36:44] VideoClip INFO: Test: [20/155]	Prec@1 73.438 (77.083)	Prec@5 98.438 (94.866)
+[07/26 18:37:02] VideoClip INFO: Test: [30/155]	Prec@1 75.000 (76.159)	Prec@5 96.875 (94.708)
+[07/26 18:37:20] VideoClip INFO: Test: [40/155]	Prec@1 65.625 (76.562)	Prec@5 98.438 (94.855)
+[07/26 18:37:38] VideoClip INFO: Test: [50/155]	Prec@1 81.250 (76.777)	Prec@5 95.312 (94.761)
+[07/26 18:37:54] VideoClip INFO: Test: [60/155]	Prec@1 76.562 (76.895)	Prec@5 92.188 (94.877)
+[07/26 18:38:11] VideoClip INFO: Test: [70/155]	Prec@1 68.750 (77.113)	Prec@5 96.875 (94.938)
+[07/26 18:38:28] VideoClip INFO: Test: [80/155]	Prec@1 70.312 (77.315)	Prec@5 92.188 (95.081)
+[07/26 18:38:46] VideoClip INFO: Test: [90/155]	Prec@1 87.500 (77.524)	Prec@5 96.875 (95.124)
+[07/26 18:39:04] VideoClip INFO: Test: [100/155]	Prec@1 82.812 (77.645)	Prec@5 96.875 (95.111)
+[07/26 18:39:20] VideoClip INFO: Test: [110/155]	Prec@1 79.688 (77.294)	Prec@5 95.312 (95.017)
+[07/26 18:39:38] VideoClip INFO: Test: [120/155]	Prec@1 73.438 (77.027)	Prec@5 93.750 (94.964)
+[07/26 18:39:56] VideoClip INFO: Test: [130/155]	Prec@1 76.562 (77.016)	Prec@5 93.750 (94.931)
+[07/26 18:40:13] VideoClip INFO: Test: [140/155]	Prec@1 84.375 (77.006)	Prec@5 96.875 (94.958)
+[07/26 18:40:30] VideoClip INFO: Test: [150/155]	Prec@1 73.438 (77.007)	Prec@5 96.875 (95.033)
+[07/26 18:40:37] VideoClip INFO: Testing Results: Prec@1 76.999 Prec@5 95.022
+[07/26 18:40:37] VideoClip INFO: Testing: 76.99919222090664/77.04967689822294
+[07/26 18:40:37] VideoClip INFO: Saving:
+###############novel test######################
+Test: [0/156], average 0.2484 sec/video         Prec@1 64.062 (64.062)  Prec@5 87.500 (87.500)
+Test: [10/156], average 0.2094 sec/video        Prec@1 62.500 (64.631)  Prec@5 84.375 (85.369)
+Test: [20/156], average 0.2070 sec/video        Prec@1 67.188 (63.393)  Prec@5 92.188 (86.533)
+Test: [30/156], average 0.2067 sec/video        Prec@1 51.562 (62.248)  Prec@5 71.875 (85.433)
+Test: [40/156], average 0.2062 sec/video        Prec@1 53.125 (61.776)  Prec@5 92.188 (85.328)
+Test: [50/156], average 0.2060 sec/video        Prec@1 60.938 (62.255)  Prec@5 84.375 (85.631)
+Test: [60/156], average 0.2061 sec/video        Prec@1 64.062 (62.269)  Prec@5 89.062 (85.758)
+Test: [70/156], average 0.2061 sec/video        Prec@1 62.500 (62.368)  Prec@5 85.938 (85.805)
+Test: [80/156], average 0.2061 sec/video        Prec@1 57.812 (62.346)  Prec@5 82.812 (85.648)
+Test: [90/156], average 0.2061 sec/video        Prec@1 68.750 (62.569)  Prec@5 84.375 (85.749)
+Test: [100/156], average 0.2062 sec/video       Prec@1 59.375 (62.732)  Prec@5 84.375 (85.938)
+Test: [110/156], average 0.2063 sec/video       Prec@1 71.875 (62.655)  Prec@5 87.500 (86.022)
+Test: [120/156], average 0.2064 sec/video       Prec@1 70.312 (63.159)  Prec@5 90.625 (86.222)
+Test: [130/156], average 0.2065 sec/video       Prec@1 64.062 (63.096)  Prec@5 89.062 (86.212)
+Test: [140/156], average 0.2066 sec/video       Prec@1 57.812 (63.143)  Prec@5 87.500 (86.348)
+Test: [150/156], average 0.2066 sec/video       Prec@1 73.438 (63.255)  Prec@5 85.938 (86.382)
+-----Evaluation is finished------
+Overall Prec@1 63.305% Prec@5 86.383%

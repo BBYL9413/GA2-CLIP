@@ -1,0 +1,141 @@
+[07/15 21:56:18] VideoClip INFO: ------------------------------------
+[07/15 21:56:18] VideoClip INFO: Environment Versions:
+[07/15 21:56:18] VideoClip INFO: - Python: 3.8.12 (default, Oct 12 2021, 13:49:34) 
+[GCC 7.5.0]
+[07/15 21:56:18] VideoClip INFO: - PyTorch: 2.0.1+cu117
+[07/15 21:56:18] VideoClip INFO: - TorchVison: 0.15.2+cu117
+[07/15 21:56:18] VideoClip INFO: ------------------------------------
+[07/15 21:56:18] VideoClip INFO: {   'data': {   'batch_size': 8,
+                'dataset': 'ucf101',
+                'drop_out': 0.6,
+                'image_tmpl': 'img_{:05d}.jpg',
+                'input_size': 224,
+                'label_list': 'lists/labels/ucf_101_base_labels.csv',
+                'modality': 'video',
+                'num_classes': 50,
+                'num_segments': 32,
+                'randaug': {'M': 9, 'N': 2},
+                'random_shift': True,
+                'seg_length': 1,
+                'train_list': 'datasets_splits/base2novel_splits/ucf_splits/fs_base_s1_train.txt',
+                'train_root': '/UCF101/video/',
+                'val_list': 'datasets_splits/base2novel_splits/ucf_splits/base_val.txt',
+                'val_root': 'UCF101/video/',
+                'workers': 4},
+    'logging': {   'eval_freq': 1,
+                   'print_freq': 10,
+                   'skip_epoch': [1, 2, 3, 4, 5, 6]},
+    'network': {   'arch': 'ViT-B/16',
+                   'arch_teacher': 'ViT-B/16',
+                   'drop': 0,
+                   'drop_out': 0.0,
+                   'emb_dropout': 0.0,
+                   'freeze': 'P',
+                   'init': True,
+                   'interaction': 'DPS',
+                   'joint_st': False,
+                   'sim_header': 'None',
+                   'tm': False,
+                   'type': 'clip_ucf'},
+    'pretrain': 'k400-vitb.pt',
+    'resume': None,
+    'seed': 1024,
+    'solver': {   'clip_ratio': 1,
+                  'epoch_offset': 0,
+                  'epochs': 12,
+                  'evaluate': False,
+                  'grad_accumulation_steps': 1,
+                  'loss_type': 'CE',
+                  'lr': 0.04,
+                  'lr_warmup_step': 2,
+                  'optim': 'adamw',
+                  'start_epoch': 0,
+                  'type': 'cosine',
+                  'weight_decay': 0.001}}
+[07/15 21:56:18] VideoClip INFO: ------------------------------------
+[07/15 21:56:18] VideoClip INFO: storing name: ./exp_nce/ucf101/ViT-B/16/20250715_215609
+[07/15 21:56:23] VideoClip INFO: train transforms: [Compose(
+    <datasets.transforms.GroupScale object at 0x7f4b3731b1c0>
+    Compose(
+    <datasets.transforms.GroupRandomSizedCrop object at 0x7f4a9df774c0>
+    <datasets.transforms.GroupRandomHorizontalFlip object at 0x7f4a9df77640>
+)
+    <datasets.transforms.GroupRandomGrayscale object at 0x7f4a9df770a0>
+), Compose(
+    <datasets.transforms.Stack object at 0x7f4a9df771c0>
+    <datasets.transforms.ToTorchFormatTensor object at 0x7f4a9df77220>
+    <datasets.transforms.GroupNormalize object at 0x7f4b6c0f1c10>
+)]
+[07/15 21:56:23] VideoClip INFO: val transforms: [Compose(
+    <datasets.transforms.GroupScale object at 0x7f4a9dbc0df0>
+    <datasets.transforms.GroupCenterCrop object at 0x7f4a9dbc0c40>
+), Compose(
+    <datasets.transforms.Stack object at 0x7f4a9dbc0ac0>
+    <datasets.transforms.ToTorchFormatTensor object at 0x7f4a9e323bb0>
+    <datasets.transforms.GroupNormalize object at 0x7f4a9dbc0ca0>
+)]
+[07/15 21:56:24] VideoClip INFO: => loading checkpoint 'k400-vitb.pt'
+[07/15 21:56:25] VideoClip INFO: Turning off gradients in both the image and the text encoder
+[07/15 21:56:31] VideoClip INFO: Epoch: [0][0/12], lr: 0.00e+00, eta: 0:15:16	Time 6.321 (6.321)	Data 3.845 (3.845)	Loss 1.1024 (1.1024)
+[07/15 21:56:39] VideoClip INFO: Epoch: [0][10/12], lr: 1.50e-02, eta: 0:02:59	Time 0.789 (1.329)	Data 0.154 (0.513)	Loss 1.0445 (1.2891)
+[07/15 21:56:44] VideoClip INFO: Test: [0/33]	Prec@1 81.250 (81.250)	Prec@5 100.000 (100.000)
+[07/15 21:56:53] VideoClip INFO: Test: [10/33]	Prec@1 81.250 (81.392)	Prec@5 95.312 (97.585)
+[07/15 21:57:02] VideoClip INFO: Test: [20/33]	Prec@1 84.375 (81.548)	Prec@5 95.312 (97.991)
+[07/15 21:57:10] VideoClip INFO: Test: [30/33]	Prec@1 76.562 (82.308)	Prec@5 100.000 (98.387)
+[07/15 21:57:12] VideoClip INFO: Testing Results: Prec@1 82.328 Prec@5 98.420
+[07/15 21:57:12] VideoClip INFO: Testing: 82.32758620689656/82.32758620689656
+[07/15 21:57:12] VideoClip INFO: Saving:
+[07/15 21:57:17] VideoClip INFO: Epoch: [1][0/12], lr: 2.00e-02, eta: 0:08:01	Time 3.618 (3.618)	Data 2.977 (2.977)	Loss 0.2698 (0.2698)
+[07/15 21:57:26] VideoClip INFO: Epoch: [1][10/12], lr: 3.50e-02, eta: 0:02:13	Time 0.773 (1.087)	Data 0.145 (0.437)	Loss 0.0763 (0.5556)
+[07/15 21:57:31] VideoClip INFO: Epoch: [2][0/12], lr: 4.00e-02, eta: 0:08:41	Time 4.311 (4.311)	Data 3.448 (3.448)	Loss 0.7888 (0.7888)
+[07/15 21:57:40] VideoClip INFO: Epoch: [2][10/12], lr: 3.94e-02, eta: 0:02:14	Time 0.782 (1.213)	Data 0.158 (0.496)	Loss 0.2525 (0.4836)
+[07/15 21:57:46] VideoClip INFO: Epoch: [3][0/12], lr: 3.90e-02, eta: 0:08:19	Time 4.579 (4.579)	Data 3.575 (3.575)	Loss 0.4324 (0.4324)
+[07/15 21:57:54] VideoClip INFO: Epoch: [3][10/12], lr: 3.71e-02, eta: 0:01:58	Time 0.764 (1.192)	Data 0.145 (0.492)	Loss 0.4787 (0.4436)
+[07/15 21:58:00] VideoClip INFO: Epoch: [4][0/12], lr: 3.62e-02, eta: 0:06:48	Time 4.213 (4.213)	Data 3.392 (3.392)	Loss 0.2615 (0.2615)
+[07/15 21:58:09] VideoClip INFO: Epoch: [4][10/12], lr: 3.30e-02, eta: 0:01:44	Time 0.794 (1.198)	Data 0.153 (0.501)	Loss 0.3815 (0.3045)
+[07/15 21:58:14] VideoClip INFO: Epoch: [5][0/12], lr: 3.18e-02, eta: 0:06:00	Time 4.238 (4.238)	Data 3.409 (3.409)	Loss 0.7404 (0.7404)
+[07/15 21:58:22] VideoClip INFO: Epoch: [5][10/12], lr: 2.77e-02, eta: 0:01:28	Time 0.781 (1.174)	Data 0.165 (0.494)	Loss 0.0104 (0.2784)
+[07/15 21:58:28] VideoClip INFO: Epoch: [6][0/12], lr: 2.62e-02, eta: 0:05:13	Time 4.298 (4.298)	Data 3.462 (3.462)	Loss 0.8630 (0.8630)
+[07/15 21:58:37] VideoClip INFO: Epoch: [6][10/12], lr: 2.16e-02, eta: 0:01:15	Time 0.776 (1.198)	Data 0.156 (0.498)	Loss 0.3216 (0.2677)
+[07/15 21:58:42] VideoClip INFO: Epoch: [7][0/12], lr: 2.00e-02, eta: 0:04:42	Time 4.626 (4.626)	Data 3.666 (3.666)	Loss 0.2304 (0.2304)
+[07/15 21:58:51] VideoClip INFO: Epoch: [7][10/12], lr: 1.53e-02, eta: 0:01:01	Time 0.768 (1.207)	Data 0.144 (0.507)	Loss 0.2627 (0.2807)
+[07/15 21:58:55] VideoClip INFO: Test: [0/33]	Prec@1 95.312 (95.312)	Prec@5 100.000 (100.000)
+[07/15 21:59:04] VideoClip INFO: Test: [10/33]	Prec@1 98.438 (97.017)	Prec@5 98.438 (99.574)
+[07/15 21:59:13] VideoClip INFO: Test: [20/33]	Prec@1 95.312 (96.949)	Prec@5 98.438 (99.405)
+[07/15 21:59:22] VideoClip INFO: Test: [30/33]	Prec@1 90.625 (96.825)	Prec@5 100.000 (99.496)
+[07/15 21:59:23] VideoClip INFO: Testing Results: Prec@1 96.791 Prec@5 99.521
+[07/15 21:59:23] VideoClip INFO: Testing: 96.7911877394636/96.7911877394636
+[07/15 21:59:23] VideoClip INFO: Saving:
+[07/15 21:59:30] VideoClip INFO: Epoch: [8][0/12], lr: 1.38e-02, eta: 0:02:17	Time 2.813 (2.813)	Data 2.191 (2.191)	Loss 0.0398 (0.0398)
+[07/15 21:59:38] VideoClip INFO: Epoch: [8][10/12], lr: 9.55e-03, eta: 0:00:39	Time 0.784 (1.019)	Data 0.164 (0.367)	Loss 0.3641 (0.2277)
+[07/15 21:59:43] VideoClip INFO: Test: [0/33]	Prec@1 95.312 (95.312)	Prec@5 100.000 (100.000)
+[07/15 21:59:52] VideoClip INFO: Test: [10/33]	Prec@1 96.875 (96.449)	Prec@5 98.438 (99.432)
+[07/15 22:00:01] VideoClip INFO: Test: [20/33]	Prec@1 95.312 (96.429)	Prec@5 98.438 (99.330)
+[07/15 22:00:10] VideoClip INFO: Test: [30/33]	Prec@1 90.625 (96.472)	Prec@5 100.000 (99.395)
+[07/15 22:00:11] VideoClip INFO: Testing Results: Prec@1 96.408 Prec@5 99.425
+[07/15 22:00:11] VideoClip INFO: Testing: 96.4080459770115/96.7911877394636
+[07/15 22:00:11] VideoClip INFO: Saving:
+[07/15 22:00:17] VideoClip INFO: Epoch: [9][0/12], lr: 8.24e-03, eta: 0:02:00	Time 3.256 (3.256)	Data 2.567 (2.567)	Loss 0.4200 (0.4200)
+[07/15 22:00:25] VideoClip INFO: Epoch: [9][10/12], lr: 4.79e-03, eta: 0:00:28	Time 0.790 (1.054)	Data 0.150 (0.401)	Loss 0.0054 (0.1622)
+[07/15 22:00:29] VideoClip INFO: Test: [0/33]	Prec@1 95.312 (95.312)	Prec@5 100.000 (100.000)
+[07/15 22:00:39] VideoClip INFO: Test: [10/33]	Prec@1 98.438 (97.017)	Prec@5 98.438 (99.574)
+[07/15 22:00:47] VideoClip INFO: Test: [20/33]	Prec@1 93.750 (96.801)	Prec@5 98.438 (99.479)
+[07/15 22:00:56] VideoClip INFO: Test: [30/33]	Prec@1 90.625 (96.673)	Prec@5 100.000 (99.546)
+[07/15 22:00:57] VideoClip INFO: Testing Results: Prec@1 96.648 Prec@5 99.569
+[07/15 22:00:57] VideoClip INFO: Testing: 96.64750957854406/96.7911877394636
+[07/15 22:00:57] VideoClip INFO: Saving:
+[07/15 22:01:03] VideoClip INFO: Epoch: [10][0/12], lr: 3.82e-03, eta: 0:01:20	Time 3.210 (3.210)	Data 2.490 (2.490)	Loss 0.1092 (0.1092)
+[07/15 22:01:11] VideoClip INFO: Epoch: [10][10/12], lr: 1.52e-03, eta: 0:00:15	Time 0.819 (1.057)	Data 0.177 (0.397)	Loss 0.0322 (0.1380)
+[07/15 22:01:16] VideoClip INFO: Test: [0/33]	Prec@1 96.875 (96.875)	Prec@5 100.000 (100.000)
+[07/15 22:01:25] VideoClip INFO: Test: [10/33]	Prec@1 98.438 (97.159)	Prec@5 98.438 (99.574)
+[07/15 22:01:33] VideoClip INFO: Test: [20/33]	Prec@1 95.312 (97.024)	Prec@5 98.438 (99.554)
+[07/15 22:01:42] VideoClip INFO: Test: [30/33]	Prec@1 90.625 (96.925)	Prec@5 100.000 (99.647)
+[07/15 22:01:43] VideoClip INFO: Testing Results: Prec@1 96.839 Prec@5 99.665
+[07/15 22:01:43] VideoClip INFO: Testing: 96.83908045977012/96.83908045977012
+[07/15 22:01:43] VideoClip INFO: Saving:
+###############novel test######################
+Test: [0/27], average 0.1209 sec/video  Prec@1 84.375 (84.375)  Prec@5 95.312 (95.312)
+Test: [10/27], average 0.0624 sec/video         Prec@1 82.812 (77.983)  Prec@5 96.875 (93.324)
+Test: [20/27], average 0.0591 sec/video         Prec@1 67.188 (75.893)  Prec@5 89.062 (93.304)
+-----Evaluation is finished------
+Overall Prec@1 76.238% Prec@5 93.101%
