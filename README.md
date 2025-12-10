@@ -60,6 +60,54 @@ Official implementation of the paper "[GA2-CLIP: Generic Attribute Anchor for Ef
 > benchmarks, particularly on base-to-new class prediction.* </p>
 > 
 
+# Model Zoo
+NOTE: All models in our experiments below uses publicly available ViT/B-16 based CLIP model. The trained model weights against each experiment is provided in tables below.
+
+
+#### Kinetics-400
+| Name  (configs)                                                | Input  | Base Acc. | Novel Acc. |  HM  |                                                                                                                                                                                                                   Model                                                                                                                                                                                                                   |
+|----------------------------------------------------------------|:------:|:---------:|:----------:|:----:|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
+
+| [ViFi-CLIP](configs/base2novel/finetuning_base2novel/k400)     | 32x224 |   77.0    |    63.3    | 69.5 | [Github](https://mbzuaiac-my.sharepoint.com/:u:/g/personal/uzair_khattak_mbzuai_ac_ae/EVEyFxODEvtFt6FVpuIQvNQBgi5bfxce_nqgzqsjuxB48g?e=rOAu0o)/[log](https://mbzuaiac-my.sharepoint.com/:u:/g/personal/uzair_khattak_mbzuai_ac_ae/EcCHHh5FvnlPnlQTHLUk2v0Bv6MMTWHpkluBiQ1MdbZWFA?e=d3NkTX) |
+
+#### HMDB-51
+| Name  (configs)                                                | Input  | Base Acc. | Novel Acc. |  HM  |                                                                                                                                                                                                                   Model                                                                                                                                                                                                                   |
+|----------------------------------------------------------------|:------:|:---------:|:----------:|:----:|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
+
+| [ViFi-CLIP](configs/base2novel/finetuning_base2novel/hmdb)     | 32x224 |   78.3    |    58.9    | 67.2 | [Github](https://mbzuaiac-my.sharepoint.com/:u:/g/personal/uzair_khattak_mbzuai_ac_ae/ETbI3yeoedBNqvAf3oz-faIBeGDy862_Tx_ZQT1soM6hZQ?e=2Y5Vxg)/[log](https://mbzuaiac-my.sharepoint.com/:u:/g/personal/uzair_khattak_mbzuai_ac_ae/EZ-JcyYOVthCu2pU4ou-AWgBHzMYzWsSKC7eL4KBU3xyLg?e=0bj1ed) |
+
+#### UCF-101
+| Name  (configs)                                               | Input  | Base Acc. | Novel Acc. |  HM  |                                                                                                                                                                                                                   Model                                                                                                                                                                                                                   |
+|---------------------------------------------------------------|:------:|:---------:|:----------:|:----:|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
+
+| [ViFi-CLIP](configs/base2novel/finetuning_base2novel/ucf)     | 32x224 |   96.8    |    75.2    | 84.6 | [Github](https://mbzuaiac-my.sharepoint.com/:u:/g/personal/uzair_khattak_mbzuai_ac_ae/EXwqEdOLKSdIpY6AfTSbRMQB0UqZdTKiaWjw-2gf8Ctcyw?e=h2MvBZ)/[log](https://mbzuaiac-my.sharepoint.com/:u:/g/personal/uzair_khattak_mbzuai_ac_ae/EdOmRlCM4zZJpr-Z497OfB4B5YK8qTiApht1StA7xJ3ClA?e=9zYxfS) |
+
+#### SSv2
+| Name  (configs)                                                | Input  | Base Acc. | Novel Acc. |  HM  |                                                                                                                                                                                                                   Model                                                                                                                                                                                                                   |
+|----------------------------------------------------------------|:------:|:---------:|:----------:|:----:|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
+
+| [ViFi-CLIP](configs/base2novel/finetuning_base2novel/ssv2)     | 32x224 |   18.7    |    14.3    | 16.2 | [Github](https://mbzuaiac-my.sharepoint.com/:u:/g/personal/uzair_khattak_mbzuai_ac_ae/Ee9-LsJzAeROj0rsXZ_Kq2gBWfDTJX9yI3NhsP3Wx9XT7g?e=QTh28B)/[log](https://mbzuaiac-my.sharepoint.com/:u:/g/personal/uzair_khattak_mbzuai_ac_ae/ETWroKKSa3VJmktA1qGcrUIBSWdSK8JaclCD7GpxXWMMRw?e=bNM8PS) |
+
+
+### Few-shot results
+Below table shows few-shot results of ViFi-CLIP for K=2, 4, 8 and 16.
+
+| Name  (configs)                                                                       | Dataset | K (shots) | Input  | Top-1 Acc. |                                                                    Model                                                                     |
+|---------------------------------------------------------------------------------------|:-------:|:---------:|:-------|:----------:|:--------------------------------------------------------------------------------------------------------------------------------------------:|
+| [GA2-CLIP](configs/few_shot/finetuning_few_shot/hmdb51/16_32_vifi_clip_2_shot.yaml)  | HMDB-51 |     2     | 32x224 |    61.9    | [link](https://mbzuaiac-my.sharepoint.com/:u:/g/personal/uzair_khattak_mbzuai_ac_ae/EZfPCFy69GlLms0xE9hacYsBMRDZolyy5-5kh7urW6U5Hg?e=PRR4dj) |
+| [GA2-CLIP](configs/few_shot/finetuning_few_shot/hmdb51/16_32_vifi_clip_4_shot.yaml)  | HMDB-51 |     4     | 32x224 |    64.3    | [link](https://mbzuaiac-my.sharepoint.com/:u:/g/personal/uzair_khattak_mbzuai_ac_ae/EYSoKhu-CEdFtDIPDB-9mcYBTocR1z6S4pB2prm8M3y86w?e=MgiPpY) |
+| [GA2-CLIP](configs/few_shot/finetuning_few_shot/hmdb51/16_32_vifi_clip_8_shot.yaml)  | HMDB-51 |     8     | 32x224 |    68.1    | [link](https://mbzuaiac-my.sharepoint.com/:u:/g/personal/uzair_khattak_mbzuai_ac_ae/EXLoRgDpJERKnxWf6GGGqzoBy-jbAuO-IcV4QSWmtT2mBg?e=piTDRc) |
+| [GA2-CLIP](configs/few_shot/finetuning_few_shot/hmdb51/16_32_vifi_clip_16_shot.yaml) | HMDB-51 |    16     | 32x224 |    70.8    | [link](https://mbzuaiac-my.sharepoint.com/:u:/g/personal/uzair_khattak_mbzuai_ac_ae/EdA4jgYynRBHrhy1ftn-s9gBFRFYCPdaD5y9AQBClaziWg?e=x2tHpP) |
+| [GA2-CLIP](configs/few_shot/finetuning_few_shot/ucf101/16_32_vifi_clip_2_shot.yaml)  | UCF-101 |     2     | 32x224 |    90.0    | [link](https://mbzuaiac-my.sharepoint.com/:u:/g/personal/uzair_khattak_mbzuai_ac_ae/ERaxz4xkUBdGkGCKopmsctgBWj0aoxf4eNWRFIQPtZja6A?e=FzpFnl) |
+| [GA2-CLIP](configs/few_shot/finetuning_few_shot/ucf101/16_32_vifi_clip_4_shot.yaml)  | UCF-101 |     4     | 32x224 |    91.8    | [link](https://mbzuaiac-my.sharepoint.com/:u:/g/personal/uzair_khattak_mbzuai_ac_ae/ETa1Ym63eYtDt9Fzlq_5YuEBcNCPlUPbD12zhc4YGusGyg?e=Z1Si0j) |
+| [GA2-CLIP](configs/few_shot/finetuning_few_shot/ucf101/16_32_vifi_clip_8_shot.yaml)  | UCF-101 |     8     | 32x224 |    93.8    | [link](https://mbzuaiac-my.sharepoint.com/:u:/g/personal/uzair_khattak_mbzuai_ac_ae/EaHr57kr7GBGno5v6Qb7sLUBERvoInzco0yfbO81davqWQ?e=V2Odqn) |
+| [GA2-CLIP](configs/few_shot/finetuning_few_shot/ucf101/16_32_vifi_clip_16_shot.yaml) | UCF-101 |    16     | 32x224 |    95.5    | [link](https://mbzuaiac-my.sharepoint.com/:u:/g/personal/uzair_khattak_mbzuai_ac_ae/ERGWnUJHBiVJluMvaUrbDPcB3iIGXAet0W-AfwDJy1bL2w?e=0fSQJb) |
+| [GA2-CLIP](configs/few_shot/finetuning_few_shot/ssv2/16_32_vifi_clip_2_shot.yaml)    |  SSv2   |     2     | 32x224 |    6.8     | [link](https://mbzuaiac-my.sharepoint.com/:u:/g/personal/uzair_khattak_mbzuai_ac_ae/EfmVXJyo9VxHheDrVrm7b88BJ_MXRyI_dhuI9pWMUpfPww?e=JPmnt2) |
+| [GA2-CLIP](configs/few_shot/finetuning_few_shot/ssv2/16_32_vifi_clip_4_shot.yaml)    |  SSv2   |     4     | 32x224 |    9.9     | [link](https://mbzuaiac-my.sharepoint.com/:u:/g/personal/uzair_khattak_mbzuai_ac_ae/ET1MeS3-C_NLpg-rAJMnf0cBruk16K56NDCwySFwse1tsQ?e=1fV3k2) |
+| [GA2-CLIP](configs/few_shot/finetuning_few_shot/ssv2/16_32_vifi_clip_8_shot.yaml)    |  SSv2   |     8     | 32x224 |    10.6     | [link](https://mbzuaiac-my.sharepoint.com/:u:/g/personal/uzair_khattak_mbzuai_ac_ae/EWp7ERV-Dn9GiiTgKWyjDyMBUVoLXyPdHcBpAPah3XvZmw?e=r5Xmii) |
+| [GA2-CLIP](configs/few_shot/finetuning_few_shot/ssv2/16_32_vifi_clip_16_shot.yaml)   |  SSv2   |    16     | 32x224 |    14.7    | [link](https://mbzuaiac-my.sharepoint.com/:u:/g/personal/uzair_khattak_mbzuai_ac_ae/EZJB66ssj_VBhZB6e59wI9oB1qHGKujTAhoSKyqvnpEzDw?e=Vdjp5n) |
+
+
 <!--    
 # Model Zoo
 NOTE: All models in our experiments below uses publicly available ViT/B-16 based CLIP model. The trained model weights against each experiment is provided in tables below.
