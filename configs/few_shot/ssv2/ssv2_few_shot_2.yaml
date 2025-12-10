@@ -1,0 +1,64 @@
+pretrain: pre_finetune_k400-vitb.pt 
+hard_prompt_pretrain: 'exp_nce/k400_base_pre/model_best.pt' 
+seed: 1024
+data:
+    dataset: something
+    modality: video #RGB
+    num_segments: 32
+    seg_length: 1
+    batch_size: 4
+    workers: 4
+    num_classes: 174
+    image_tmpl: 'img_{:05d}.jpg'
+    train_root: 'Dataset/sthv2/video/'
+    train_list: 'datasets_splits/ssv2_splits/train1_few_shot_2.txt'
+    val_root: 'Dataset/sthv2/video/'
+    val_list: 'datasets_splits/ssv2_splits/validation.txt'
+    label_list: 'lists/labels/ssv2_labels.csv'
+    input_size: 224
+    randaug:
+        N: 2 #2
+        M: 9  #9
+    random_shift: True
+network:
+    arch: ViT-B/16  #ViT-B/32 ViT-B/16
+    arch_vanilla: ViT-B/16 #ViT-B/32 ViT-B/16
+    init: True
+    tm: False  # False tsm tokent1d tokenshift
+    drop_out: 0.0 
+    emb_dropout: 0.0 
+    type: clip_ssv2
+    sim_header: None       # Transf   None  
+    interaction: DPS # DP VCS BOS
+    joint_st: False
+    drop: 0          
+    freeze: P # V:vision T:Text V+T: vision+text P:prompt
+    gaa: True # use generic attributes anchor
+prompt:
+    use_hard_prompt: True
+    trainer_type: 'IVLP'
+    vision_depth: 9    
+    vision_ctx: 16        
+    language_depth: 9
+    language_ctx: 16
+    gaa_train_root: "gaa/video/" 
+    gaa_train_list: "datasets_splits/base2novel_splits/gaa_splits/fs_base_gaa_train.txt"
+    gaa_label: 'lists/labels/gaa_base_labels_n.csv'
+    dropout: 0.5 
+solver:
+    type: cosine
+    epochs: 30
+    start_epoch: 0
+    epoch_offset: 0
+    optim: adamw
+    lr: 8.e-3 
+    lr_warmup_step: 5 
+    weight_decay: 0.001 
+    loss_type: CE #
+    evaluate: False
+    clip_ratio: 1.0
+    grad_accumulation_steps: 1
+logging:
+    print_freq: 10
+    eval_freq: 1
+    skip_epoch: [0,1,2,3,4]
