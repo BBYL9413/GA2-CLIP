@@ -34,7 +34,7 @@ Official implementation of the paper "[GA2-CLIP: Generic Attribute Anchor for Ef
 
 ## Highlights
 
-![main figure](docs/main_figure.png)
+![main figure](docs/main.png)
 <p align="justify">  In this work, we propose a video prompt learning methodcalled GA2-CLIP. This method effectively improves thegeneralization from known to unknown categories by introducing hard prompts and generic attribute anchors as abridge. Our innovations are: The proposed video languagefine-tuning generic attribute anchor prompt method cancounteract the semantic narrowing problem in the downstream task; we introduce externally supervised hard andsoft prompts through a nonlinear mapping layer, whichenhances the generalization ability through a competitivelearning mechanism. Extensive experiments validate the effectiveness of the method, and we believe that this workprovides new research directions in the field of videoprompt learning, especially for researchers who lack sufficient experimental conditions. </p>
 
 
