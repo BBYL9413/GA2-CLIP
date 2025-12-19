@@ -32,7 +32,7 @@ Official implementation of the paper "[GA2-CLIP: Generic Attribute Anchor for Ef
   
 <hr />
 
-## Highlights
+## 💡 Highlights
 
 ![main figure](docs/main.png)
 <p align="justify">  In this work, we propose a video prompt learning methodcalled GA2-CLIP. This method effectively improves thegeneralization from known to unknown categories by introducing hard prompts and generic attribute anchors as abridge. Our innovations are: The proposed video languagefine-tuning generic attribute anchor prompt method cancounteract the semantic narrowing problem in the downstream task; we introduce externally supervised hard andsoft prompts through a nonlinear mapping layer, whichenhances the generalization ability through a competitivelearning mechanism. Extensive experiments validate the effectiveness of the method, and we believe that this workprovides new research directions in the field of videoprompt learning, especially for researchers who lack sufficient experimental conditions. </p>
@@ -60,7 +60,7 @@ Official implementation of the paper "[GA2-CLIP: Generic Attribute Anchor for Ef
 > benchmarks, particularly on base-to-new class prediction.* </p>
 > 
 
-# Model Zoo
+# 🧪 Model Zoo
 NOTE: All models in our experiments below uses publicly available ViT/B-16 based CLIP model. The trained model weights against each experiment is provided in tables below.
 
 
@@ -226,11 +226,56 @@ python -m torch.distributed.launch --nproc_per_node=8 main.py \
 --only_test --resume /PATH/TO/CKPT --opts TEST.NUM_CLIP 4 TEST.NUM_CROP 3
 ``` -->
 
-## Contact
-If you have any questions, please create an issue on this repository or contact at dqwangbin@sdut.edu.cn .
+# 🔥 Training and Testing:
 
+- **For the base2novel experiment on Kinetics-400**
+  - Step1: Load pre-trained K100 weights (Includes 100 new classes, composed of non-duplicated labels from K600 and K400), and you can directly download the pre-trained [K100](https://huggingface.co/BBLY9413/GA2-CLIP/tree/main) weights.
+  ```sh
+  # For example in config/k400_base2novel:
+   hard_prompt_pretrain: 'exp_nce/k600_pre_d100.pt' 
+  ```
+  - Step2: Set the generic attribute anchor dataset path, composed of the new K100 dataset.
+  ```sh
+  # For example in config/k400_base2novel:
+   gaa_train_root: "gaa/video/" 
+   gaa_train_list: "datasets_splits/base2novel_splits/gaa_splits/fs_base_gaa_train.txt" 
+  ```
+  - Step3: To train our model with 8 GPUs in Single Machine, you can run:
+  ```sh
+  # For example, train the 32 Frames ViT-B/16.
+   bash scripts/run_nce_train.sh  configs/base2novel/k400/k400_base2novel.yaml
 
-# Citation
+  # For test, you can run:
+   bash scripts/run_test.sh  configs/base2novel/k400/k400_base2novel_novel_eval.yaml exp_nce/k400/ViT-B/32/last_model.pt
+  ```
+  
+- **For the base2novel experiment on HMDB51/UCF101/SSv2**
+  
+  - Step1: Load pre-trained K400 weights , and you can also download it ([k400_base_pre.pt](https://huggingface.co/BBLY9413/GA2-CLIP/tree/main)) directly.
+  ```sh
+  # For example in config/hmdb_base2novel:
+   hard_prompt_pretrain: 'exp_nce/k400_base_pre.pt' 
+  ```
+  **Please note that all baseline methods compared load the Vanilla K400 weights during initialization. You may choose your own weights or directly download the [weights](https://huggingface.co/BBLY9413/GA2-CLIP/tree/main) I provide (trained using the original [Text4Vis](https://github.com/whwu95/Text4Vis) code).**
+  ```sh
+  # For example in config/hmdb_base2novel:
+   pretrain: 'k400-vitb.pt' 
+  ```
+  - Step2: Set the generic attribute anchor dataset path, composed of the K400 dataset.
+  ```sh
+  # For example in config/hmdb_base2novel:
+   gaa_train_root: "gaa/video/" 
+   gaa_train_list: "datasets_splits/base2novel_splits/gaa_splits/fs_base_gaa_train.txt" 
+  ```
+  - Step3: To train our model with 8 GPUs in Single Machine, you can run:
+  ```sh
+  # For example, train the 32 Frames ViT-B/16.
+   bash scripts/run_nce_train.sh  configs/base2novel/hmdb51/hmdb_base2novel.yaml
+
+  # For test, you can run:
+   bash scripts/run_test.sh  configs/base2novel/hmdb51/hmdb_base2novel.yaml exp/hmdb51/ViT-B/32/last_model.pt
+  ```
+# ⭐ Citation
 If you use our approach (code, model or dataset splits) in your research, please consider citing:
 ```
 @article{wang2025ga2,
