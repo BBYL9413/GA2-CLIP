@@ -273,7 +273,7 @@ python -m torch.distributed.launch --nproc_per_node=8 main.py \
    bash scripts/run_nce_train.sh  configs/base2novel/hmdb51/hmdb_base2novel.yaml
 
   # For test, you can run:
-   bash scripts/run_test.sh  configs/base2novel/hmdb51/hmdb_base2novel.yaml exp/hmdb51/ViT-B/32/last_model.pt
+   bash scripts/run_test.sh  configs/base2novel/hmdb51/hmdb_base2novel_novel_eval.yaml exp/hmdb51/ViT-B/32/last_model.pt
   ```
 # ⭐ Citation
 If you use our approach (code, model or dataset splits) in your research, please consider citing:
