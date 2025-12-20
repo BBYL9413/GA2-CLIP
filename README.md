@@ -234,11 +234,12 @@ python -m torch.distributed.launch --nproc_per_node=8 main.py \
   # For example in config/k400_base2novel:
    hard_prompt_pretrain: 'exp_nce/k600_pre_d100.pt' 
   ```
-  - Step2: Set the generic attribute anchor dataset path, composed of the new K100 dataset.
+  - Step2: Set the generic attribute anchor dataset path, composed of the new K100 dataset. You can build your own suitable dataset or use the examples provided in the [code](logs/base2novel/base2novel_K400_log.txt).
   ```sh
   # For example in config/k400_base2novel:
    gaa_train_root: "gaa/video/" 
-   gaa_train_list: "datasets_splits/base2novel_splits/gaa_splits/fs_base_gaa_train.txt" 
+   gaa_train_list: "datasets_splits/base2novel_splits/gaa_splits/fs_base_gaa_train.txt"
+   new_label_list = 'lists/labels/gaa_base_labels_n.csv''
   ```
   - Step3: To train our model with 8 GPUs in Single Machine, you can run:
   ```sh
