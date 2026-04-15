@@ -3,10 +3,11 @@
 
 
 > [**GA2-CLIP: Generic Attribute Anchor for Efficient Prompt Tuningin Video-Language Models**](https://arxiv.org/pdf/2511.22125)<br>
-> [Bin Wang](https://scholar.google.com/citations?user=Uk43cI4AAAAJ&hl=zh-CN&oi=sra), Ruotong Hu, [Wenqian Wang](https://scholar.google.com/citations?user=3a6qqUYAAAAJ&hl=zh-CN), [Wentong Li](https://scholar.google.com/citations?user=MJjM6BcAAAAJ&hl=zh-CN), [Mingliang Gao](https://scholar.google.com/citations?user=IFEIrUgAAAAJ&hl=zh-CN), [Runmin Cong](https://scholar.google.com/citations?user=-VrKJ0EAAAAJ&hl=zh-CN), [Wei Zhang](https://scholar.google.com/citations?user=qCWuPHsAAAAJ&hl=zh-CN)
+
+<!--  > [Bin Wang](https://scholar.google.com/citations?user=Uk43cI4AAAAJ&hl=zh-CN&oi=sra), Ruotong Hu, [Wenqian Wang](https://scholar.google.com/citations?user=3a6qqUYAAAAJ&hl=zh-CN), [Wentong Li](https://scholar.google.com/citations?user=MJjM6BcAAAAJ&hl=zh-CN), [Mingliang Gao](https://scholar.google.com/citations?user=IFEIrUgAAAAJ&hl=zh-CN), [Runmin Cong]%(https://scholar.google.com/citations?user=-VrKJ0EAAAAJ&hl=zh-CN), [Wei Zhang](https://scholar.google.com/citations?user=qCWuPHsAAAAJ&hl=zh-CN) -->
 
 
-[![paper](https://img.shields.io/badge/arXiv-Paper-<COLOR>.svg)](https://arxiv.org/pdf/2511.22125)
+<!-- [![paper](https://img.shields.io/badge/arXiv-Paper-<COLOR>.svg)](https://arxiv.org/pdf/2511.22125) -->
 
 Official implementation of the paper "[GA2-CLIP: Generic Attribute Anchor for Efficient Prompt Tuningin Video-Language Models](https://arxiv.org/pdf/2511.22125)".
 <hr />
